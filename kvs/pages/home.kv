@@ -1,0 +1,113 @@
+#:import ScrollEffect kivy.effects.scroll.ScrollEffect
+<HomeScreen>
+    md_bg_color:"#DED5FF"
+    MDBoxLayout:
+
+
+        MDScrollView:
+            #effect_cls:'ScrollEffect'
+            do_scroll_x:False
+            do_scroll_y:True
+
+            MDGridLayout:
+                adaptive_height:True
+                size_hint_y:None
+                #height:self.minimum_height
+                #orientation:"vertical"
+                spacing:0
+                cols:1
+
+                MDGridLayout:
+                    size_hint_y:None
+                    height:'150dp'
+                    md_bg_color:app.my_theme_color1
+                    cols:1
+                    pos_hint:{'top':1}
+                    padding:dp(14)
+
+
+                    MDSmartTile:
+                        id:spec
+                        radius: 24
+                        box_radius: [0, 0, 24, 24]
+                        box_color: 0, 0, 1, .2
+                        source:"assets/img/product1.png"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+
+
+                        MDIconButton:
+                            icon: "fire"
+                            theme_icon_color: "Custom"
+                            icon_color: app.my_theme_color1
+                            pos_hint: {"center_y": .5}
+                            #on_release: self.icon = "heart" if self.icon == "heart-outline" else "heart-outline"
+
+                        MDLabel:
+                            id:specl
+                            text: "Chevron Wine s"
+                            bold: True
+                            color: 1, 1, 1, 1
+                MDGridLayout:
+                    id:mylist
+                    cols:1
+
+                    spacing:3
+                    pos_hint:{'center_y':.5}
+                    #size_hint_y:1.5
+                    padding:8
+                    MDBoxLayout:
+                        orientation:'vertical'
+                        size_hint_y:None
+                        height:'5dp'
+                    MDLabel:
+                        text:"More Cocktail Recipees"
+                        theme_text_color:"Custom"
+                        text_color:app.my_theme_color1
+                        font_name:"akadora"
+                        bold:True
+                        size_hint_y:.15
+                        font_size:"20dp"
+                    MDBoxLayout:
+                        orientation:'vertical'
+                        adaptive_height:True
+                        height:'5dp'
+
+
+
+
+
+
+
+<CardItem>
+    size_hint_y: None
+    height: "70dp"
+    padding: "3dp"
+    radius: 12
+    on_release:
+        app.gotorecipe(root.id,root.title, root.description, root.img, root.subtitle)
+
+    FitImage:
+        source: root.img
+        radius: root.radius
+        size_hint_x: None
+        width: root.height
+
+    MDBoxLayout:
+        orientation: "vertical"
+        adaptive_height: True
+        spacing: "6dp"
+        padding: "12dp", 0, 0, 0
+        pos_hint: {"center_y": .5}
+
+        MDLabel:
+            text: root.title
+            font_size:"15dp"
+            bold: True
+            adaptive_height: True
+
+        MDLabel:
+            text: root.subtitle
+            font_size:"13dp"
+            theme_text_color: "Hint"
+            adaptive_height: True
+
