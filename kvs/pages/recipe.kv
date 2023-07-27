@@ -1,0 +1,65 @@
+<RecipeScreen>
+    md_bg_color:"#DED5FF"
+    MDBoxLayout:
+        spacing:0
+        orientation:"vertical"
+        MDScrollView:
+            MDBoxLayout:
+                adaptive_height:True
+                size_hint_y:.999
+                orientation:"vertical"
+                spacing:0
+                MDBoxLayout:
+                    size_hint_y:0.1
+                    pos_hint:{"top":1}
+                    spacing:5
+                    orientation:"horizontal"
+                    MDIconButton:
+                        icon:"chevron-left"
+                        theme_text_color:"Custom"
+                        color:app.my_theme_color1
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        on_release:app.change_screen("Home")
+
+                    MDLabel:
+                        text:root.title
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        font_name:"firabold"
+                        theme_text_color:"Custom"
+                        color:app.my_theme_color1
+                MDBoxLayout:
+                    pos_hint:{'center_y':.9}
+                    padding:dp(7)
+                    size_hint_y:.9
+                    orientation:"vertical"
+                    MDCard:
+                        elevation:1
+                        pos_hint:{'center_y':.8}
+                        radius: [8,]
+                        size_hint_y:.35
+                        md_bg_color:app.my_theme_color1
+                        FitImage:
+                            source: root.img
+                            radius: [8,8,0,0]
+                            height:root.height
+                            width: root.width
+                    MDCard:
+                        elevation:1
+                        pos_hint:{'center_y':.55}
+                        radius: [0,0,8,8]
+                        size_hint_y:.45
+                        md_bg_color:"#ffffff"
+                        padding:5
+                        orientation:"vertical"
+
+                        MDLabel:
+                            adaptive_height:True
+                            text:root.description
+                            size_hint_y:root.height
+                            theme_text_color:"Custom"
+                            color:"#000000"
+                            pos_hint:{'center_x':.5}
+                            font_name:"firaregular"
+
+
+
